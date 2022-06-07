@@ -28,7 +28,6 @@ const run = async () => {
 
       app.patch('/info', async(req, res)=>{
         const email = req.query.email;
-        console.log(email)
         const data = req.body;
         const filter = {email:email};
         const options = {upsert:true};
@@ -46,7 +45,6 @@ const run = async () => {
       })
       app.patch('/business', async(req, res)=>{
         const email = req.query.email;
-        console.log(email)
         const data = req.body;
         const filter = {email:email};
         const options = {upsert:true};
@@ -63,7 +61,6 @@ const run = async () => {
       })
       app.patch('/loan', async(req, res)=>{
         const email = req.query.email;
-        console.log(email)
         const data = req.body;
         const filter = {email:email};
         const options = {upsert:true};
