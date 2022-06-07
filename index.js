@@ -69,11 +69,9 @@ const run = async () => {
         const options = {upsert:true};
         const updatedDoc = {
           $set:{
-            firstName:data.firstName,
-            lastName:data.lastName,
-            age: data.age,
-            gender: data.gender,
-            about:data.about
+            loanAmount:data.loanAmount,
+            interestRate:data.interestRate,
+            loanTenure: data.loanTenure,
           }
         }
         const result = await loanCollection.updateOne(filter, updatedDoc, options);
