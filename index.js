@@ -26,7 +26,60 @@ const run = async () => {
       .db("Loan-db")
       .collection("Applications");
 
-
+      app.patch('/info', async(req, res)=>{
+        const email = req.query.email;
+        console.log(email)
+        const data = req.body;
+        const filter = {email:email};
+        const options = {upsert:true};
+        const updatedDoc = {
+          $set:{
+            firstName:data.firstName,
+            lastName:data.lastName,
+            age: data.age,
+            gender: data.gender,
+            about:data.about
+          }
+        }
+        const result = await loanCollection.updateOne(filter, updatedDoc, options);
+        res.send(result)
+      })
+      app.patch('/business', async(req, res)=>{
+        const email = req.query.email;
+        console.log(email)
+        const data = req.body;
+        const filter = {email:email};
+        const options = {upsert:true};
+        const updatedDoc = {
+          $set:{
+            businessName : data.businessName,
+            gstNumber: data.gstNumber,
+            businessType: data.businessType,
+            address: data.address
+          }
+        }
+        const result = await loanCollection.updateOne(filter, updatedDoc, options);
+        res.send(result)
+      })
+      app.patch('/loan', async(req, res)=>{
+        const email = req.query.email;
+        console.log(email)
+        const data = req.body;
+        const filter = {email:email};
+        const options = {upsert:true};
+        const updatedDoc = {
+          $set:{
+            firstName:data.firstName,
+            lastName:data.lastName,
+            age: data.age,
+            gender: data.gender,
+            about:data.about
+          }
+        }
+        const result = await loanCollection.updateOne(filter, updatedDoc, options);
+        res.send(result)
+      })
+      
 
 
   } 
